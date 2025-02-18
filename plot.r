@@ -51,7 +51,9 @@ for (file in files) {
       y = "Depth"
     ) +
     theme_minimal() +
-    scale_x_continuous(breaks = seq(0, 1, by = 0.1))
+    scale_x_continuous(breaks = seq(0, 1, by = 0.1)) +
+    # background color
+    theme(panel.background = element_rect(fill = "white"),  plot.background = element_rect(fill = "white"))
   
   for (gene in unique(data$ID)) {
     gene_range <- data %>% filter(ID == gene) %>% summarize(min=min(Position), max=max(Position))
